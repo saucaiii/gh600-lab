@@ -30,7 +30,7 @@ GH-600 certifies people, not code, so no repo can be "certified compliant". This
 | Post-hoc analysis | `scripts/agent/audit-report.sh` |
 | Lifecycle | `docs/agent-lifecycle.md` |
 | Responsible AI | `CLAUDE.md` section, PR template checklist |
-| Self-test | `tests/guardrails.sh` (87 checks, runs on macOS bash 3.2) |
+| Self-test | `tests/guardrails.sh` (93 checks, runs on macOS bash 3.2) |
 
 ## Install
 
@@ -42,7 +42,7 @@ tests/guardrails.sh   # should end with Failed: 0
 ```
 
 1. Needs `jq` and `git` (`brew install jq`).
-2. Replace `@saucaiii` in `.github/CODEOWNERS` and the agent `metadata.owner`.
+2. Replace `@your-handle` in `.github/CODEOWNERS` and the agent `metadata.owner`.
 3. Not a Node repo? Change the `npm` commands in `ci.yml`, `copilot-setup-steps.yml`, and `.claude/settings.json`.
 4. Edit the path patterns at the top of `.agent-policy/policy.sh` to match your repo's high-risk areas.
 5. Commit to the default branch. Copilot only reads hooks and agents from the default branch.
@@ -67,7 +67,7 @@ scripts/agent/close-task.sh --remove-worktree               # archive + reset me
 
 ## Tested
 
-`tests/guardrails.sh` runs 87 checks against a throwaway repo: every policy rule through both adapters (Claude and Copilot input formats), guardrail tamper attempts by file and by shell, plan approval binding, scope, fail-closed behaviour, retries and escalation, audit logging, session context, scope check on bash 3.2, and JSON/shell syntax. All pass on macOS (bash 3.2). Workflow YAML parses; `actionlint` was not run.
+`tests/guardrails.sh` runs 93 checks against a throwaway repo: every policy rule through both adapters (Claude and Copilot input formats), guardrail tamper attempts by file and by shell, plan approval binding, scope, fail-closed behaviour, retries and escalation, audit logging, session context, scope check on bash 3.2, and JSON/shell syntax. All pass on macOS (bash 3.2). Workflow YAML parses; `actionlint` was not run.
 
 **Not tested live:** a real Claude Code session, a real Copilot cloud agent run, and real GitHub API calls. Run them in your gh600-lab repo first.
 
