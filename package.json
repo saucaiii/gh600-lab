@@ -1,0 +1,8 @@
+{
+  "name": "gh600-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sandbox repo for piloting the GH-600 agent guardrail kit",
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
